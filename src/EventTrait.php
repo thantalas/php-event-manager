@@ -80,8 +80,11 @@ trait EventTrait
      * @param mixed $default
      * @return mixed
      */
-    public function getData($key, $default = null)
+    public function getData($key = null, $default = null)
     {
+        if(is_null($key)){
+            return $this->data;
+        }
         if (!isset($this->data[(string) $key])) {
             return $default;
         }
